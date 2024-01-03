@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Final.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Final.Data;
 
@@ -8,5 +9,6 @@ public class AppDbContext : DbContext
     {
     }
 
-    //public DbSet<Product> Products { get; set; }
+    public DbSet<WorkoutPlan> WorkoutPlans { get; set; }
+    public DbSet<WorkoutSets> WorkoutSets { get; set; }
 }

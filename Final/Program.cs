@@ -1,4 +1,5 @@
 using Final.Data;
+using Final.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,6 +12,12 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowSpecificOrigin", builder => builder.WithOrigins("https://icy-river-0a26b650f.4.azurestaticapps.net").AllowAnyHeader().AllowAnyMethod());
 });
+
+builder.Services.AddHttpClient();
+
+builder.Services.AddScoped<IExerciseDBService,ExerciseDBService>();
+
+
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

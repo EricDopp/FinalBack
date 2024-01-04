@@ -16,6 +16,8 @@ builder.Services.AddCors(options =>
 builder.Services.AddHttpClient();
 
 builder.Services.AddScoped<IExerciseDBService,ExerciseDBService>();
+builder.Services.AddScoped<IWorkoutPlanService, WorkoutPlanService>();
+builder.Services.AddScoped<IWorkoutSetsService, WorkoutSetsService>();
 
 
 

@@ -108,14 +108,14 @@ namespace Final.Controllers
                 // Log the exception
                 return StatusCode(500, $"{ex.Message}"); // or return an appropriate error response
             }
-}
+        }
 
             [HttpGet("exercises/equipment/{equipment}")]
         public async Task<IActionResult> GetExercisesByEquipment(string equipment)
         {
             try
             {
-                var exerciseDBs = await _exerciseDBService.GetExerciseDBsByBodyPart(equipment);
+                var exerciseDBs = await _exerciseDBService.GetExercisesByEquipment(equipment);
 
                 if (exerciseDBs != null)
                 {
@@ -132,14 +132,8 @@ namespace Final.Controllers
                 return StatusCode(500, $"{ex.Message}"); // or return an appropriate error response
             }
         }
-
-
-
-
-        
-
         [HttpGet("exercises/target/{target}")]
-        public async Task<IActionResult> target(string target)
+        public async Task<IActionResult> GetExercisesByTarget(string target)
         {
             try
             {
@@ -166,7 +160,7 @@ namespace Final.Controllers
         {
             try
             {
-                var exerciseDBs = await _exerciseDBService.GetExerciseDBsByBodyPart(id);
+                var exerciseDBs = await _exerciseDBService.GetExerciseById(id);
 
                 if (exerciseDBs != null)
                 {
@@ -191,7 +185,7 @@ namespace Final.Controllers
         {
             try
             {
-                var exerciseDBs = await _exerciseDBService.GetExercisesByName(name);
+                var exerciseDBs = await _exerciseDBService.GetExerciseByName(name);
 
                 if (exerciseDBs != null)
                 {
@@ -210,7 +204,7 @@ namespace Final.Controllers
         }
 
         [HttpGet("exercises")]
-        public async Task<IActionResult> exercises()
+        public async Task<IActionResult> GetAllExercises()
         {
             try
             {

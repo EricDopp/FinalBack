@@ -33,7 +33,7 @@ public class ExerciseDBService : IExerciseDBService
         return null;
     }
     //------------------------------------------------------------------------------------------------------
-    public async Task<List<ExerciseDB>> GetBodyPartList()
+    public async Task<List<string>> GetBodyPartList()
     {
         var apiUrl = _configuration["ExerciseDB:Url"];
         var apiKey = _configuration["ExerciseDB:ApiKey"];
@@ -44,14 +44,14 @@ public class ExerciseDBService : IExerciseDBService
         if (response.IsSuccessStatusCode)
         {
             var content = await response.Content.ReadAsStringAsync();
-            var exerciseDBs = JsonConvert.DeserializeObject<List<ExerciseDB>>(content);
+            var exerciseDBs = JsonConvert.DeserializeObject<List<string>>(content);
             return exerciseDBs;
         }
         // Handle error cases
         return null;
     }
     //---------------------------------------------------------------------------------------------------------
-    public async Task<List<ExerciseDB>> GetEquipmentList()
+    public async Task<List<string>> GetEquipmentList()
     {
         var apiUrl = _configuration["ExerciseDB:Url"];
         var apiKey = _configuration["ExerciseDB:ApiKey"];
@@ -62,14 +62,14 @@ public class ExerciseDBService : IExerciseDBService
         if (response.IsSuccessStatusCode)
         {
             var content = await response.Content.ReadAsStringAsync();
-            var exerciseDBs = JsonConvert.DeserializeObject<List<ExerciseDB>>(content);
+            var exerciseDBs = JsonConvert.DeserializeObject<List<string>>(content);
             return exerciseDBs;
         }
         // Handle error cases
         return null;
     }
     //---------------------------------------------------------------------------------------------------------
-    public async Task<List<ExerciseDB>> GetTargetList()
+    public async Task<List<string>> GetTargetList()
     {
         var apiUrl = _configuration["ExerciseDB:Url"];
         var apiKey = _configuration["ExerciseDB:ApiKey"];
@@ -80,14 +80,14 @@ public class ExerciseDBService : IExerciseDBService
         if (response.IsSuccessStatusCode)
         {
             var content = await response.Content.ReadAsStringAsync();
-            var exerciseDBs = JsonConvert.DeserializeObject<List<ExerciseDB>>(content);
+            var exerciseDBs = JsonConvert.DeserializeObject<List<string>>(content);
             return exerciseDBs;
         }
         // Handle error cases
         return null;
     }
     //---------------------------------------------------------------------------------------------------------
-    public async Task<List<ExerciseDB>> GetExerciseByEquipment(string equipment)
+    public async Task<List<ExerciseDB>> GetExercisesByEquipment(string equipment)
     {
         var apiUrl = _configuration["ExerciseDB:Url"];
         var apiKey = _configuration["ExerciseDB:ApiKey"];
@@ -123,7 +123,7 @@ public class ExerciseDBService : IExerciseDBService
         return null;
     }
     //---------------------------------------------------------------------------------------------------------
-    public async Task<List<ExerciseDB>> GetExercisesById(string id)
+    public async Task<ExerciseDB> GetExerciseById(string id)
     {
         var apiUrl = _configuration["ExerciseDB:Url"];
         var apiKey = _configuration["ExerciseDB:ApiKey"];
@@ -134,14 +134,14 @@ public class ExerciseDBService : IExerciseDBService
         if (response.IsSuccessStatusCode)
         {
             var content = await response.Content.ReadAsStringAsync();
-            var exerciseDBs = JsonConvert.DeserializeObject<List<ExerciseDB>>(content);
+            var exerciseDBs = JsonConvert.DeserializeObject<ExerciseDB>(content);
             return exerciseDBs;
         }
         // Handle error cases
         return null;
     }
     //---------------------------------------------------------------------------------------------------------
-    public async Task<List<ExerciseDB>> GetExercisesByName(string name)
+    public async Task<List<ExerciseDB>> GetExerciseByName(string name)
     {
         var apiUrl = _configuration["ExerciseDB:Url"];
         var apiKey = _configuration["ExerciseDB:ApiKey"];
@@ -155,6 +155,8 @@ public class ExerciseDBService : IExerciseDBService
             var exerciseDBs = JsonConvert.DeserializeObject<List<ExerciseDB>>(content);
             return exerciseDBs;
         }
+        
+      
         // Handle error cases
         return null;
     }

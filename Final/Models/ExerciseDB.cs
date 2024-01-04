@@ -9,7 +9,6 @@ public class ExerciseDB
     public string name { get; set; }
     public string target { get; set; }
 
+    public List <string> secondaryMuscles { get; set;}
     public List<string> instructions { get; set; }
-    public List <string> secondaryMusclesCount { get; set;}
-
 }

@@ -5,13 +5,13 @@ namespace Final.Services
     public interface IExerciseDBService
     {
         Task<List<ExerciseDB>> GetExerciseDBsByBodyPart(string bodyPart);
-        Task<List<ExerciseDB>> GetBodyPartList();
-        Task<List<ExerciseDB>> GetEquipmentList();
-        Task<List<ExerciseDB>> GetTargetList();
-        Task<List<ExerciseDB>> GetExerciseByEquipment(string equipment);
+        Task<List<string>> GetBodyPartList();
+        Task<List<string>> GetEquipmentList();
+        Task<List<string>> GetTargetList();
+        Task<List<ExerciseDB>> GetExercisesByEquipment(string equipment);
         Task<List<ExerciseDB>> GetExercisesByTarget(string target);
-        Task<List<ExerciseDB>> GetExercisesById(string id);
-        Task<List<ExerciseDB>> GetExercisesByName(string name);
+        Task<ExerciseDB> GetExerciseById(string id);
+        Task<List<ExerciseDB>> GetExerciseByName(string name);
         Task<List<ExerciseDB>> GetAllExercises();
         
     }

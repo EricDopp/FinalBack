@@ -32,12 +32,17 @@ namespace Final.Services
             return workoutSet;
         }
 
-        public List<WorkoutSets> GetWorkoutSetsByUserId(string userId)
+        public List<WorkoutSets> GetWorkoutSetsByPlanId(int workoutPlanId)
         {
             return _dbContext.WorkoutSets
-                .Where(ws => ws.UserId == userId)
+                .Where(ws => ws.WorkoutPlanId == workoutPlanId)
                 .OrderBy(ws => ws.SortOrder)
                 .ToList();
+        }
+
+        public WorkoutSets GetWorkoutSetsById(int workoutSetId)
+        {
+            return _dbContext.WorkoutSets.Find(workoutSetId);
         }
 
         public WorkoutSets UpdateWorkoutSets(int workoutSetId, decimal weight, int reps, int workoutSets, int sortOrder)

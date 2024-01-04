@@ -40,7 +40,7 @@ namespace Final.Controllers
             }
         }
 
-        [HttpGet("{userId}")]
+        [HttpGet("users/{userId}")]
         public IActionResult GetWorkoutPlansByUserId(string userId)
         {
             try
@@ -51,6 +51,23 @@ namespace Final.Controllers
             catch (Exception ex)
             {
                 return StatusCode(500, "Internal Server Error: " + ex.Message);
+            }
+        }
+
+        [HttpGet("{workoutPlanId}")]
+        public IActionResult GetWorkoutPlanById(int workoutPlanId)
+        {
+            try
+            {
+                var workoutPlan = _workoutPlanService.GetWorkoutPlanById(workoutPlanId);
+                if (workoutPlan != null)
+                    return Ok(workoutPlan);
+                else
+                    return NotFound();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
             }
         }
 

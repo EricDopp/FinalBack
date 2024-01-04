@@ -45,13 +45,34 @@ namespace Final.Controllers
             }
         }
 
-        [HttpGet("{userId}")]
-        public IActionResult GetWorkoutSetsByUserId(string userId)
+        [HttpGet("plans/{workoutPlanId}")]
+        public IActionResult GetWorkoutSetsByPlanId(int workoutPlanId)
         {
             try
             {
-                var workoutSets = _workoutSetsService.GetWorkoutSetsByUserId(userId);
-                return Ok(workoutSets);
+                var workoutSets = _workoutSetsService.GetWorkoutSetsByPlanId(workoutPlanId);
+                if (workoutSets != null)
+                    return Ok(workoutSets);
+                else
+                    return NotFound();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+
+        [HttpGet("{workoutSetId}")]
+        public IActionResult GetWorkoutSetsById(int workoutSetId)
+        {
+            try
+            {
+                var workoutSets = _workoutSetsService.GetWorkoutSetsById(workoutSetId);
+                if (workoutSets != null)
+                    return Ok(workoutSets);
+                else
+                    return NotFound();
             }
             catch (Exception ex)
             {

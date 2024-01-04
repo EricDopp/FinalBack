@@ -41,6 +41,11 @@ public class WorkoutPlanService : IWorkoutPlanService
             .ToList();
     }
 
+    public WorkoutPlan GetWorkoutPlanById(int workoutPlanId)
+    {
+        return _dbContext.WorkoutPlans.Find(workoutPlanId);
+    }
+
     public WorkoutPlan UpdateWorkoutPlan(int workoutPlanId, string workoutPlanName, string weekDay)
     {
         if (!IsValidWeekDay(weekDay))

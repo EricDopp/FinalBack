@@ -10,7 +10,7 @@ builder.Services.AddDbContext<AppDbContext>(x => x.UseSqlServer(builder.Configur
 
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowSpecificOrigin", builder => builder.WithOrigins("https://icy-river-0a26b650f.4.azurestaticapps.net").AllowAnyHeader().AllowAnyMethod());
+    options.AddPolicy("AllowSpecificOrigin", builder => builder.WithOrigins("https://icy-river-0a26b650f.4.azurestaticapps.net", "http://localhost:4200").AllowAnyHeader().AllowAnyMethod().AllowCredentials());
 });
 
 builder.Services.AddHttpClient();

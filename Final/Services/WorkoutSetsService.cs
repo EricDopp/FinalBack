@@ -12,12 +12,13 @@ namespace Final.Services
             _dbContext = dbContext;
         }
 
-        public WorkoutSets CreateWorkoutSets(string userId, int workoutPlanId, string exerciseDBId, decimal weight, int reps, int workoutSets, string weightUnit, int sortOrder)
+        public WorkoutSets CreateWorkoutSets(string userId, int workoutPlanId, string exerciseName, string exerciseDBId, decimal weight, int reps, int workoutSets, string weightUnit, int sortOrder)
         {
             var workoutSet = new WorkoutSets
             {
                 UserId = userId,
                 WorkoutPlanId = workoutPlanId,
+                ExerciseName = exerciseName,
                 ExerciseDBId = exerciseDBId,
                 RepCount = reps,
                 Weight = weight,

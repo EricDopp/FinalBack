@@ -12,6 +12,7 @@ public class WorkoutSets
     public int WorkoutPlanId { get; set; }
     [Required]
     public string UserId { get; set; }
+    public string ExerciseName { get; set; }
     [Required]
     public string ExerciseDBId { get; set; }
     public int RepCount { get; set; }

@@ -48,10 +48,10 @@ public class WorkoutPlanService : IWorkoutPlanService
 
     public WorkoutPlan UpdateWorkoutPlan(int workoutPlanId, string workoutPlanName, string weekDay)
     {
-        if (!IsValidWeekDay(weekDay))
-        {
-            throw new ArgumentException("Invalid WeekDay format");
-        }
+        //if (!IsValidWeekDay(weekDay))
+        //{
+        //    throw new ArgumentException("Invalid WeekDay format");
+        //}
 
         var workoutPlan = _dbContext.WorkoutPlans.Find(workoutPlanId);
 
@@ -89,25 +89,25 @@ public class WorkoutPlanService : IWorkoutPlanService
         return false;
     }
 
-    private bool IsValidWeekDay(string weekDay)
-    {
-        // Expected format: "0,1,2,3,4,5,6"
-        // 0 = Sunday, 6 = Saturday
-        var parts = weekDay.Split(',');
+    //private bool IsValidWeekDay(string weekDay)
+    //{
+    //    // Expected format: "0,1,2,3,4,5,6"
+    //    // 0 = Sunday, 6 = Saturday
+    //    var parts = weekDay.Split(',');
 
-        foreach (var part in parts)
-        {
-            if (!int.TryParse(part, out int day))
-            {
-                return false;
-            }
+    //    foreach (var part in parts)
+    //    {
+    //        if (!int.TryParse(part, out int day))
+    //        {
+    //            return false;
+    //        }
 
-            if (day < 0 || day > 6)
-            {
-                return false;
-            }
-        }
+    //        if (day < 0 || day > 6)
+    //        {
+    //            return false;
+    //        }
+    //    }
 
-        return true;
-    }
+    //    return true;
+    //}
 }

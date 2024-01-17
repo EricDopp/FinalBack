@@ -14,10 +14,10 @@ public class WorkoutPlanService : IWorkoutPlanService
 
     public WorkoutPlan CreateWorkoutPlan(string userId, string workoutPlanName, string weekDay)
     {
-        if (!IsValidWeekDay(weekDay))
-        {
-            throw new ArgumentException("Invalid WeekDay format");
-        }
+        //if (!IsValidWeekDay(weekDay))
+        //{
+        //    throw new ArgumentException("Invalid WeekDay format");
+        //}
 
         var workoutPlan = new WorkoutPlan
         {

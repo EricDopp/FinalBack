@@ -23,6 +23,7 @@ namespace Final.Controllers
                 var createdWorkoutSet = _workoutSetsService.CreateWorkoutSets(
                     workoutSets.UserId,
                     workoutSets.WorkoutPlanId,
+                    workoutSets.ExerciseName,
                     workoutSets.ExerciseDBId,
                     workoutSets.Weight,
                     workoutSets.RepCount,
